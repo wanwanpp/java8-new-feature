@@ -1,0 +1,16 @@
+1.java8中允许接口实现方法，而不只是简单的声明，这种方法就是默认方法，使用default关键字
+    还可以定义静态方法及实现，如同在类中一样定义
+2.函数式接口指的是只定义了唯一抽象方法的接口。
+3.函数式接口代表一种契约，一种对某个特定函数类型的契约，在它出现的地方，实际期望一个符合契约要求的函数。
+    lambda表达式不能脱离上下文而存在，否则编译器不能进行推断出参数类型，以及返回结果类型，它必须要有
+    一个明确的目标类型，这个目标类型就是某个函数式接口。
+4.Predicate -- 传入一个参数，返回一个bool结果， 方法为boolean test(T t)
+  Consumer -- 传入一个参数，无返回值，纯消费。 方法为void accept(T t)
+  Function -- 传入一个参数，返回一个结果，方法为R apply(T t)
+  Supplier -- 无参数传入，返回一个结果，方法为T get()
+  UnaryOperator -- 一元操作符， 继承Function,传入参数的类型和返回类型相同。
+  BinaryOperator -- 二元操作符， 传入的两个参数的类型和返回类型相同， 继承BiFunction
+
+5.Consumer与Function的区别主要是Consumer没有返回值，Function有返回值,包括void也有其包装类型作为返回值类型。
+6.Function<Integer,Integer> function参数就是使用lambda定义的一个处理过程，就是一个函数。
+  传入一个参数，应用某些规则，返回一个结果。至于是什么规则，一般是使用lambda表达式定义。
