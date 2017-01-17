@@ -14,3 +14,16 @@
 5.Consumer与Function的区别主要是Consumer没有返回值，Function有返回值,包括void也有其包装类型作为返回值类型。
 6.Function<Integer,Integer> function参数就是使用lambda定义的一个处理过程，就是一个函数。
   传入一个参数，应用某些规则，返回一个结果。至于是什么规则，一般是使用lambda表达式定义。
+7.一个方法接受声明Runable，Comparable或者Callable接口，都有单个抽象方法，可以传入lambda表达式。
+    类似的，如果一个方法接受声明与java.util.function包内的接口，例如Predicate，Supplier，Consumer，Function，
+    则可以向其传入lambda表达式
+8.lambda内部可以使用静态，非静态和局部变量，这成为lambda内的变量捕获.
+9.lambda在java中又称为闭包或者匿名函数。
+10.不能在lambda内部修改定义在外部的变量，只能对其进行访问。
+11.stream代表了来自某个源的对象的序列。
+    （1）元素序列：Stream以序列的形式提供了特定类型的元素的集合。根据需求，它可以获得和计算元素，但不会储存任何元素。
+    （2）源：Stream可以将集合、数组和I/O资源作为输入源。
+    （3）聚集操作：Stream支持诸如filter、map、limit、reduce等的聚集操作。
+    （4）流水技术：许多Stream操作返回了流本身，故它们的返回值可以以流水的行式存在。这些操作称之为中间操作，并且它们的功能就是负责输入、处理和向目标输出。collect()方法是一个终结操作，通常存在于流水线操作的末端，来标记流的结束。
+    （5）自动跌代：Stream的操作可以基于已提供的源元素进行内部的迭代，而集合则需要显式的迭代。
+
