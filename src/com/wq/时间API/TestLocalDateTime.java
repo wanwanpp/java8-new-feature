@@ -1,9 +1,9 @@
 package com.wq.时间API;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
+import org.junit.Test;
+
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 
 /**
  * Created by 王萍 on 2017/1/17 0017.
@@ -42,5 +42,20 @@ public class TestLocalDateTime {
         // 转化为字符串，再输出
         LocalTime date5 = LocalTime.parse("20:15:30");
         System.out.println("date 5: " + date5);
+    }
+
+    @Test
+    public void test(){
+        LocalDate date1 = LocalDate.now();
+        System.out.println("current date: " + date1);
+
+        // 计算下周一的日期并输出
+        LocalDate nextMonday = date1.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+        System.out.println("next monday on : " + nextMonday);
+
+        // 获得下个月的第二个周期的日期并输出
+        LocalDate firstInYear = LocalDate.of(date1.getYear(),date1.getMonth(), 1);
+        LocalDate secondSunday = firstInYear.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)).with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
+        System.out.println("second sunday of next month : " + secondSunday);
     }
 }
